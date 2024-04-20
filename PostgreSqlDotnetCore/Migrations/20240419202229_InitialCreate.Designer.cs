@@ -12,8 +12,8 @@ using PostgreSqlDotnetCore.Data;
 namespace PostgreSqlDotnetCore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221229203724_Initial")]
-    partial class Initial
+    [Migration("20240419202229_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

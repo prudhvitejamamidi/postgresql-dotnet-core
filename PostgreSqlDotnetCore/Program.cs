@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PostgreSqlDotnetCore.Data;
+using PostgreSqlDotnetCore.repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +15,22 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+// Add repository services
+builder.Services.AddScoped<UserRepository>();
+//builder.Services.AddScoped<BudgetRepository>();
+builder.Services.AddScoped<ExpenseRepository>();
+builder.Services.AddScoped<TeamMemberRepository>();
+
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -32,6 +48,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthorization();
 

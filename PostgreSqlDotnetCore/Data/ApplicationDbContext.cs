@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using PostgreSqlDotnetCore.Models;
 
 namespace PostgreSqlDotnetCore.Data
 {
@@ -9,5 +10,8 @@ namespace PostgreSqlDotnetCore.Data
             : base(options)
         {
         }
+        public DbSet<Expense> expenses { get; set; }
+        public DbSet<User> users { get; set; }
+        public DbSet<Budget> budgets { get; set; }
     }
 }

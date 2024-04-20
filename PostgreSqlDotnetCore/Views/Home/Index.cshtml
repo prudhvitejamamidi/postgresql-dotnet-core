@@ -2,7 +2,34 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="hero">
+    <div class="hero-content">
+        <h1>Take Control of Your Finances</h1>
+        <p>Easily track your expenses, set budgets, and forecast your future spending.</p>
+        <a href="@Url.Action("Login", "Home")" class="cta-button">Get Started</a>
+
+    </div>
+    <div class="hero-image">
+        <img src="~/img/hero-image.png" alt="Hero Image">
+    </div>
 </div>
+
+<div class="features">
+    <div class="feature-card">
+        <img src="~/img/expense-icon.png" alt="Expense Icon">
+        <h3>Expense Tracking</h3>
+        <p>Easily log your daily expenses and categorize them.</p>
+    </div>
+    <div class="feature-card">
+        <img src="~/img/budget-icon.png" alt="Budget Icon">
+        <h3>Budget Management</h3>
+        <p>Set and monitor your monthly budgets with ease.</p>
+    </div>
+    <div class="feature-card">
+        <img src="~/img/forecast-icon.png" alt="Forecast Icon">
+        <h3>Expense Forecasting</h3>
+        <p>Get insights into your future spending patterns.</p>
+    </div>
+</div>
+    <script src="script.js"></script>
+
