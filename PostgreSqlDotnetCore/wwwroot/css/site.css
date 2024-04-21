@@ -656,16 +656,32 @@ body.lb-disable-scrolling {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f4f4f4;
+    background-color:  rgba(0,0,0,0.6);
+    
 }
+    .login-container h1 {
+        font-size: 3rem; /* Increase the font size */
+        margin-top: 4rem;
+        color: white; /* Change the color to white */
+    }
 
-.login-form {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 300px;
-}
+    .login-container p {
+        font-size: 1rem; /* Increase the font size */
+        margin-top: 1rem;
+        color: white; /* Change the color to white */
+    }
+    .login-container  p a {
+        font-size: 1rem; /* Increase the font size */
+        margin-top: 1rem;
+        color: blue; /* Change the color to white */
+    }
+    .login-form {
+        background-color: #fff;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 300px;
+    }
 
     .login-form label {
         display: block;
