@@ -2,6 +2,29 @@
     ViewData["Title"] = "About";
 }
 
+<header>
+    <nav>
+        <ul>
+            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+            <li><a href="@Url.Action("Index", "Dashboard")">Dashboard</a></li>
+            <li><a href="@Url.Action("Index", "Expense")">Expenses</a></li>
+            <li><a href="@Url.Action("Index", "About")">About</a></li>
+        </ul>
+        <div class="user-profile">
+            @if (TempData != null)
+            {
+
+                <a href="@Url.Action("Logout", "Home")">Logout</a>
+            }
+            else
+            {
+                <a href="@Url.Action("Login", "Home")">Login</a>
+            }
+        </div>
+    </nav>
+</header>
+
+
 <div class="about">
     <h2>About Us</h2>
     <p>

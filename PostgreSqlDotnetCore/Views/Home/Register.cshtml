@@ -22,6 +22,7 @@
         <span asp-validation-for="password" class="text-danger"></span>
 
         <button type="submit" class="login-button">Sign Up</button>
+        <button type="submit" asp-action="Index" asp-controller="Home" class="login-button">Cancel</button>
     </form>
     <p>Already have an account? <a href="@Url.Action("Login", "Home")">Log In</a></p>
 </div>

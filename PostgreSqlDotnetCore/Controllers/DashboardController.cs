@@ -5,44 +5,7 @@ using PostgreSqlDotnetCore.repositories;
 using System;
 namespace PostgreSqlDotnetCore.Controllers
 {
-    //public class DashboardController : Controller
-    //{
-    //    private readonly BudgetRepository _budgetRepository;
-    //    private readonly ExpenseRepository _expenseRepository;
-
-    //    public DashboardController(BudgetRepository budgetRepository, ExpenseRepository expenseRepository)
-    //    {
-    //        _budgetRepository = budgetRepository;
-    //        _expenseRepository = expenseRepository;
-    //    }
-
-    //    public IActionResult Index()
-    //    {
-    //        // Retrieve the user's budget and expenses
-    //        var budget = _budgetRepository.GetCurrentBudget(User.Identity.Name);
-    //        var expenses = _expenseRepository.GetExpensesByUser(User.Identity.Name);
-
-    //        // Prepare the view model
-    //        var viewModel = new DashboardViewModel
-    //        {
-    //            MonthlyBudget = budget.monthly_budget,
-    //            MonthlyExpenses = expenses.Sum(e => e.amount),
-    //            RemainingBudget = budget.monthly_budget - expenses.Sum(e => e.amount)
-    //        };
-
-    //        return View(viewModel);
-    //    }
-
-    //    [HttpPost]
-    //    public IActionResult SetBudget(decimal monthlyBudget)
-    //    {
-    //        // Update the user's budget
-    //        _budgetRepository.UpdateBudget(User.Identity.Name, monthlyBudget);
-
-    //        // Redirect back to the dashboard
-    //        return RedirectToAction("Index");
-    //    }
-    //}
+   
     public class DashboardController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -56,8 +19,10 @@ namespace PostgreSqlDotnetCore.Controllers
 
         public IActionResult Index()
         {
-            // Retrieve the authenticated user's ID from the session
+            // Retrieve the authenticated user's ID from the sessio
+            TempData["UserNmae"] = HttpContext.Session.GetString("UserName");
             var userId = HttpContext.Session.GetInt32("UserId");
+            var userName = HttpContext.Session.GetString("UserName");
             if (userId.HasValue)
             {
                 // Retrieve the user's monthly budget and expenses
@@ -77,7 +42,8 @@ namespace PostgreSqlDotnetCore.Controllers
                     MonthlyBudget = monthlyBudget,
                     MonthlyExpenses = monthlyExpenses,
                     RemainingBudget = remainingBudget,
-                    ExpenseData = expenseData
+                    ExpenseData = expenseData,
+                    UserName= userName
                 };
                 return View(viewModel);
             }

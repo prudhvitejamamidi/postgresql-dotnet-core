@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,21 +11,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    @*<header>
         <nav>
             <ul>
                 <li><a href="@Url.Action("Index", "Home")">Home</a></li>
-                <li><a href="@Url.Action("Login", "Home")">Login</a></li>
                 <li><a href="@Url.Action("Index", "Dashboard")">Dashboard</a></li>
                 <li><a href="@Url.Action("Index", "Expense")">Expenses</a></li>
                 <li><a href="@Url.Action("Index", "About")">About</a></li>
-             </ul>
-                <div class="user-profile">
-                        <img src="user-avatar.png" alt="User Avatar">
-                        <span><a href="@Url.Action("Logout", "Home")">logout</a></span>
-                 </div>
+            </ul>
+            <div class="user-profile">
+                @if (TempData["UserName"] != null)
+                    {
+                    <span>TempData["UserName"]</span>
+                    <a href="@Url.Action("Logout", "Home")">Logout</a>
+                }
+                else
+                {
+                    <a href="@Url.Action("Login", "Home")">Login</a>
+                }
+            </div>
         </nav>
-    </header>
+    </header>*@
 
 
     <main>
@@ -39,17 +46,17 @@
 </body>
 
 @*<script>$(document).ready(function () {
-            calculateTotalAmount();
-        });
+        calculateTotalAmount();
+    });
 
-        function calculateTotalAmount() {
-            var totalAmount = 0;
-            $(".expense-amount").each(function () {
-                var amount = parseFloat($(this).text().replace("$", "").replace(",", ""));
-                totalAmount += amount;
-            });
-            $("#total-amount").text(totalAmount.toFixed(2));
-        }</script>*@
+    function calculateTotalAmount() {
+        var totalAmount = 0;
+        $(".expense-amount").each(function () {
+            var amount = parseFloat($(this).text().replace("$", "").replace(",", ""));
+            totalAmount += amount;
+        });
+        $("#total-amount").text(totalAmount.toFixed(2));
+    }</script>*@
 </html>
 
 

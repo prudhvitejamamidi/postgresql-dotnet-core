@@ -3,8 +3,31 @@
 @{
     ViewData["Title"] = "Dashboard";
 }
+<header>
+    <nav>
+        <ul>
+            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+            <li><a href="@Url.Action("Index", "Dashboard")">Dashboard</a></li>
+            <li><a href="@Url.Action("Index", "Expense")">Expenses</a></li>
+            <li><a href="@Url.Action("Index", "About")">About</a></li>
+        </ul>
+        <div class="user-profile">
+            @if (TempData !=null)
+            {
+                
+                <a href="@Url.Action("Logout", "Home")">Logout</a>
+            }
+            else
+            {
+                <a href="@Url.Action("Login", "Home")">Login</a>
+            }
+        </div>
+    </nav>
+</header>
+
 
 <div class="dashboard">
+    <h2>Welcome, @Model.UserName!</h2>
     <h2>Your Dashboard</h2>
     <div class="dashboard-content">
         <div class="budget-input">
@@ -34,25 +57,25 @@
 </div>
 
 @*@section Scripts {
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>// Initialize the expense chart
-        const ctx = document.getElementById('expenseChart').getContext('2d');
-        const expenseChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Groceries', 'Rent', 'Transportation', 'Entertainment'],
-                datasets: [{
-                    label: 'Expenses',
-                    data: [500, 800, 300, 200],
-                    backgroundColor: ['#4CAF50', '#2196F3', '#FF9800', '#E91E63']
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false
-            }
-        });</script>
-}*@
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>// Initialize the expense chart
+            const ctx = document.getElementById('expenseChart').getContext('2d');
+            const expenseChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Groceries', 'Rent', 'Transportation', 'Entertainment'],
+                    datasets: [{
+                        label: 'Expenses',
+                        data: [500, 800, 300, 200],
+                        backgroundColor: ['#4CAF50', '#2196F3', '#FF9800', '#E91E63']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });</script>
+    }*@
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>

@@ -76,7 +76,7 @@ namespace PostgreSqlDotnetCore.Controllers
             // Return a success response
             return RedirectToAction("Index");
         }
-        private int GetAuthenticatedUserId()
+        public int GetAuthenticatedUserId()
         {
             // Get the authenticated user's ID from the session
             var userId = HttpContext.Session.GetInt32("UserId");

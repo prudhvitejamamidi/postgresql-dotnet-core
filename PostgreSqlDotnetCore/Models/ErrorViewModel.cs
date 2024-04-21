@@ -36,6 +36,7 @@ namespace PostgreSqlDotnetCore.Models
         public decimal MonthlyExpenses { get; set; }
         public decimal RemainingBudget { get; set; }
         public Dictionary<string, decimal>? ExpenseData { get; set; }
+        public string UserName { get; set; }
     }
 
     public class Expense

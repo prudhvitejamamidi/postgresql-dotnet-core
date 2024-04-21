@@ -1,6 +1,27 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<header>
+    <nav>
+        <ul>
+            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+            <li><a href="@Url.Action("Index", "Dashboard")">Dashboard</a></li>
+            <li><a href="@Url.Action("Index", "Expense")">Expenses</a></li>
+            <li><a href="@Url.Action("Index", "About")">About</a></li>
+        </ul>
+        <div class="user-profile">
+            @if (TempData["UserNme"] != null)
+            {
+
+                <a href="@Url.Action("Logout", "Home")">Logout</a>
+            }
+            else
+            {
+                <a href="@Url.Action("Login", "Home")">Login</a>
+            }
+        </div>
+    </nav>
+</header>
 
 <div class="hero">
     <div class="hero-content">
@@ -31,5 +52,5 @@
         <p>Get insights into your future spending patterns.</p>
     </div>
 </div>
-    <script src="script.js"></script>
+<script src="script.js"></script>
 

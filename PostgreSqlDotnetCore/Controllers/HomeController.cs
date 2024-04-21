@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PostgreSqlDotnetCore.Data;
 using PostgreSqlDotnetCore.Models;
-using System.Diagnostics;
+
 
 namespace PostgreSqlDotnetCore.Controllers
 {
@@ -15,7 +15,8 @@ namespace PostgreSqlDotnetCore.Controllers
         }
 
         public IActionResult Index()
-        {
+        { 
+            TempData["Userid"] = HttpContext.Session.GetInt32("UserId");
             return View();
         }
 
@@ -66,6 +67,7 @@ namespace PostgreSqlDotnetCore.Controllers
                 {
                     // Store the authenticated user's ID in the session
                     HttpContext.Session.SetInt32("UserId", authenticatedUser.user_id);
+                    HttpContext.Session.SetString("UserName", authenticatedUser.username);
 
                     // Redirect the user to the dashboard
                     return RedirectToAction("Index", "Dashboard");
@@ -84,6 +86,14 @@ namespace PostgreSqlDotnetCore.Controllers
         {
             // Clear the user's ID from the session
             HttpContext.Session.Remove("UserId");
+
+            // Redirect the user to the login page
+            return RedirectToAction("Login", "Home");
+        }
+        public IActionResult Cancel()
+        {
+           
+    
 
             // Redirect the user to the login page
             return RedirectToAction("Login", "Home");
