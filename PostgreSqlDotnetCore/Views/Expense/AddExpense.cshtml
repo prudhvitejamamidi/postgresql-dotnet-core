@@ -4,26 +4,30 @@
     ViewData["Title"] = "Add Expense";
 }
 <header>
-    <nav>
-        <ul>
-            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
-            <li><a href="@Url.Action("Index", "Dashboard")">Dashboard</a></li>
-            <li><a href="@Url.Action("Index", "Expense")">Expenses</a></li>
-            <li><a href="@Url.Action("Index", "About")">About</a></li>
-        </ul>
-        <div class="user-profile">
-            @if (TempData != null)
-            {
+    <div id="navbar" class="navbar top">
+        <h1 class="logo">
+            <span class="text-primary"><i class="fas fa-book-open"></i> Budget</span>Pulse
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="@Url.Action("Index", "Dashboard")">Dashboard</a></li>
+                <li><a href="@Url.Action("Index", "Expense")">Expenses</a></li>
+                @*<li><a href="@Url.Action("Index", "About")">About</a></li>*@
+                @if (TempData != null)
+                {
 
-                <a href="@Url.Action("Logout", "Home")">Logout</a>
-            }
-            else
-            {
-                <a href="@Url.Action("Login", "Home")">Login</a>
-            }
-        </div>
-    </nav>
+                    <li><a href="@Url.Action("Logout", "Home")">Logout</a></li>
+                }
+                else
+                {
+                    <li><a href="@Url.Action("Login", "Home")">Login</a></li>
+                }
+
+            </ul>
+        </nav>
+    </div>
 </header>
+
 
 <div class="add-expense">
     <h2>Add Expense</h2>

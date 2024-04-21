@@ -16,7 +16,7 @@ namespace PostgreSqlDotnetCore.Controllers
 
         public IActionResult Index()
         { 
-            TempData["Userid"] = HttpContext.Session.GetInt32("UserId");
+         
             return View();
         }
 
@@ -88,13 +88,10 @@ namespace PostgreSqlDotnetCore.Controllers
             HttpContext.Session.Remove("UserId");
 
             // Redirect the user to the login page
-            return RedirectToAction("Login", "Home");
+            return RedirectToAction("Index", "Home");
         }
         public IActionResult Cancel()
         {
-           
-    
-
             // Redirect the user to the login page
             return RedirectToAction("Login", "Home");
         }
